@@ -1,26 +1,21 @@
 <uniqsmodel name="Player" description="玩家">
 	<!-- <property name="PlayerId" type="i64" description="玩家Id"/>所有对象统一使用对象Id -->
-	<property name="Level" type="i32" description="玩家等级"/>
-	<property name="VipLevel" type="u32" description="玩家Vip等级"/>
+	<property name="Level" type="i64" subset="Friend, Minimap" description="玩家等级"/>
+	<property name="VipLevel" type="u64" subset="Friend" description="玩家Vip等级"/>
 	<property name="SomeQuestItemId" type="i64" description="某任务道具Id，具体要去玩家身上的道具里面获取信息"/>
 	<property name="Exp" type="u64" description="经验值，非常大32位可能会溢出"/>
-	<property name="Name" type="str" description="昵称"/>
-	<property name="SeasonSomeQuest1GottenBuffs" type="arr_i32" description="某活动1本赛季获得的buff列表，有序，隔赛季清空"/>
-	<property name="SeasonSomeQuest2RecvedCount" type="arr_u32" description="某活动2本赛季各点位收集数量，隔赛季清空"/>
-	<property name="AppstorePayLastBillIdx" type="i32" description="苹果充值防重单idx，0-indexed，注意到9以后再下一个变成0"/>
+	<property name="Name" type="str" subset="Friend, Minimap" description="昵称"/>
+	<property name="SeasonSomeQuest1GottenBuffs" type="arr_i64" description="某活动1本赛季获得的buff列表，有序，隔赛季清空"/>
+	<property name="AppstorePayLastBillIdx" type="i64" description="苹果充值防重单idx，0-indexed，注意到9以后再下一个变成0"/>
 	<property name="AppstorePayLastBillId" type="arr_i64" description="苹果充值防重单id列表，最多10条，覆盖最后一条"/>
 	<property name="DailySentFrendHearts" type="arr_u64" description="当天给自己的好友赠送过体力的好友ID列表，注意这里应该是arr_i64，只是做个demo覆盖到所有用法所以用arr_u64"/>
 	<property name="SeasonSomeQuest3BaseNames" type="arr_str" description="某活动3本赛季给各据点取的别名，下标依次显示"/>
-	<property name="SomeRepeatQuestY1FinishedIds" type="set_i32" description="某循环活动y1已完成的任务ID列表，集齐后可找NPC交一次，并再次领取循环任务，已完成的不可重复完成"/>
-	<property name="SomeRepeatQuestY2FinishedIds" type="set_u32" description="某循环活动y2已完成的任务ID列表，集齐后可找NPC交一次，并再次领取循环任务，已完成的不可重复完成"/>
 	<property name="SomeRepeatQuestY3FinishedIds" type="set_i64" description="某循环活动y3已完成的任务ID列表，集齐后可找NPC交一次，并再次领取循环任务，已完成的不可重复完成"/>
 	<property name="SomeRepeatQuestY4FinishedIds" type="set_u64" description="某循环活动y5已完成的任务ID列表，集齐后可找NPC交一次，并再次领取循环任务，已完成的不可重复完成"/>
 	<property name="SeasonSomeQuestGottenTitles" type="set_str" description="某活动本赛季已获得的称号列表"/>
-	<property name="PaiedSumGroupByLevel" type="map_i32" description="各充值档历史累积充值总额"/>
-	<property name="PaiedTimesGroupByLevel" type="map_u32" description="各充值档历史累积充值次数"/>
 	<property name="PaiedGottenDimandsGroupByLevel" type="map_i64" description="各充值档历史累积充值获得的钻石总数，包括赠送部分"/>
 	<property name="PaiedGottenExpGroupByLevel" type="map_u64" description="各充值档历史累积充值获得的充值经验(用以换算VIP等级的)"/>
 	<property name="PetNickNames" type="map_str" description="给自己的宠物取的昵称(实际项目中应该放到宠物身上，生命周期随宠物一起消失。这里只是个demo)"/>
-	<property name="Pets" type="sub_set" sub_type="Pet" description="宠物列表"/>
-	<property name="BagEquips" type="sub_arr" sub_type="Equip" description="背包中装备列表，有序，可空。这里也是简单处理了，实际项目中还是应该用sub_set的"/>
+	<property name="Pets" type="sub_set" sub_type="Pet" subset="Friend" description="宠物列表"/>
+	<property name="BagEquips" type="sub_arr" sub_type="Equip" subset="Friend" description="背包中装备列表，有序，可空。这里也是简单处理了，实际项目中还是应该用sub_set的"/>
 </uniqsproto>

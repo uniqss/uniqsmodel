@@ -1,9 +1,8 @@
 <uniqsmodel name="Equip" description="装备">
     <!-- <property name="itemid" type="i32" description="物品ID"/> 所有model统一使用对象的ID -->
-    <property name="BagPos" type="i32" description="在背包中的位置"/>
-    <property name="AAALevel" type="u32" description="AAA的等级，such as 附魔"/>
-    <property name="BBBLevel" type="i64" description="BBB的等级，such as 强化"/>
+    <property name="BagPos" type="i64" description="在背包中的位置"/>
     <property name="CCCLevel" type="u64" description="CCC的等级，such as 锻造"/>
     <property name="DDDName" type="str" description="DDD的名称，such as 铸造师名字 ，可以在世界频道里炫耀一下满足一下大R的虚荣心，干将莫邪制造之类"/>
-    <property name="FirstShow" type="i32" description="首次红点提示"/>
+    <property name="FirstShow" type="i64" description="首次红点提示"/>
+	<property name="Stones" type="map_i64" description="镶嵌石头Id，各槽位为key，石头id为value。这里简单起见石头就做为一个item了，不是复杂类型，只有id数量"/>
 </uniqsproto>

@@ -1,5 +1,5 @@
 <uniqsmodel name="Item" description="道具">
     <!-- <property name="itemid" type="i32" description="物品ID"/> 所有model统一使用对象的ID -->
-    <property name="Count" type="i32" description="数量"/>
-    <property name="FirstShow" type="i32" description="首次红点提示"/>
+    <property name="Count" type="i64" description="数量"/>
+    <property name="FirstShow" type="i64" description="首次红点提示"/>
 </uniqsproto>
