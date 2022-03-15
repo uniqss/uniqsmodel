@@ -19,13 +19,13 @@ class UObject {
     std::unordered_map<std::string, u64> m_properties_u64;
     std::unordered_map<std::string, str> m_properties_str;
 
-    // 多值不随机查询 arr
+    // 多值不随机查询，一般需要配合一个idx一起用，或者是关注顺序的每次用循环找(性能会差一点，不能排序不能二分查找) arr
     std::unordered_map<std::string, std::vector<i32>> m_arr_i32;
     std::unordered_map<std::string, std::vector<u32>> m_arr_u32;
     std::unordered_map<std::string, std::vector<i64>> m_arr_i64;
     std::unordered_map<std::string, std::vector<u64>> m_arr_u64;
     std::unordered_map<std::string, std::vector<str>> m_arr_str;
-    // 多值随机查询 set
+    // 多值随机查询，注意这里面不能保证顺序，如果要有序，要显示层面之前做一次排序 set
     std::unordered_map<std::string, std::unordered_set<i32>> m_set_i32;
     std::unordered_map<std::string, std::unordered_set<u32>> m_set_u32;
     std::unordered_map<std::string, std::unordered_set<i64>> m_set_i64;
