@@ -1,0 +1,23 @@
+<uniqsmodel name="player" description="玩家">
+	<!-- 自定义结构体，可用于协议 -->
+	<structs>
+		<struct name="Item" description="物品类">
+			<property name="itemid" type="int64" description="物品ID"/>
+			<property name="param1" type="int32" description="参数1"/>
+		</struct>
+		<struct name="Player" description="玩家类">
+			<property name="playerid" type="uint64" description="玩家ID"/>
+			<property name="level" type="int32" description="玩家等级"/>
+			<property name="playername" type="string" description="玩家名"/>
+			<property name="lastlogintime" type="string" description="最后登录时间"/>
+			<property name="lastlogouttime" type="string" description="最后登出时间"/>
+			<property name="item" type="Item" description="某任务道具"/>
+			<property name="items" type="Item" complex_type="map" key="itemid" key_type="int64" max="TEST_Inner_MaxCount" description="玩家的所有物品"/>
+			<property name="equips1" type="int32" complex_type="map" key_type="int32" max="TEST_Inner_MaxCount" description="身上装备1"/>
+			<property name="equips2" type="uint64" complex_type="map" key_type="uint64" max="TEST_Inner_MaxCount" description="身上装备2"/>
+		</struct>
+		<struct name="DataCenter" singleton="true" description="数据中心">
+			<property name="players" type="Player" complex_type="map" key="playerid" key_type="int64" max="TEST_Inner_MaxCount" description="所有玩家"/>
+		</struct>
+	</structs>
+</uniqsproto>
