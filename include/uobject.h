@@ -49,44 +49,42 @@ class UObject {
     void SetPropertyStr(const std::string& pname, const std::string& value);
     // arr
     const std::vector<i64>& GetArrI64(const std::string& pname) const;
-    std::vector<i64>& GetArrI64(const std::string& pname);
+    void SetArrI64(const std::string& pname, int idx, i64 value);
+    int AppendArrI64(const std::string& pname, i64 value); // return idx
+    int FindArrI64(const std::string& pname, i64 value); // return first idx, -1 if not found.
     const std::vector<u64>& GetArrU64(const std::string& pname) const;
-    std::vector<u64>& GetArrU64(const std::string& pname);
+    void SetArrU64(const std::string& pname, int idx, u64 value);
+    int AppendArrU64(const std::string& pname, u64 value); // return idx
+    int FindArrU64(const std::string& pname, u64 value); // return first idx, -1 if not found.
     const std::vector<str>& GetArrStr(const std::string& pname) const;
-    std::vector<str>& GetArrStr(const std::string& pname);
+    void SetArrStr(const std::string& pname, int idx, const str& value);
+    int AppendArrStr(const std::string& pname, const str& value); // return idx
+    int FindArrStr(const std::string& pname, const str& value); // return first idx, -1 if not found.
     // set
     const std::unordered_set<i64>& GetSetI64(const std::string& pname) const;
-    std::unordered_set<i64>& GetSetI64(const std::string& pname);
     bool ExistsSetI64(const std::string& pname, i64 value) const;
     void SetSetI64(const std::string& pname, i64 value);
     const std::unordered_set<u64>& GetSetU64(const std::string& pname) const;
-    std::unordered_set<u64>& GetSetU64(const std::string& pname);
     bool ExistsSetU64(const std::string& pname, u64 value) const;
     void SetSetU64(const std::string& pname, u64 value);
     const std::unordered_set<str>& GetSetStr(const std::string& pname) const;
-    std::unordered_set<str>& GetSetStr(const std::string& pname);
     bool ExistsSetStr(const std::string& pname, const std::string& value) const;
     void SetSetStr(const std::string& pname, const std::string& value);
     // map
     const std::unordered_map<int64_t, i64>& GetMapI64(const std::string& pname) const;
-    std::unordered_map<int64_t, i64>& GetMapI64(const std::string& pname);
     bool ExistsMapI64(const std::string& pname, int64_t key) const;
     void SetMapI64(const std::string& pname, int64_t key, i64 value) const;
     const std::unordered_map<int64_t, u64>& GetMapU64(const std::string& pname) const;
-    std::unordered_map<int64_t, u64>& GetMapU64(const std::string& pname);
     bool ExistsMapU64(const std::string& pname, int64_t key) const;
     void SetMapU64(const std::string& pname, int64_t key, u64 value) const;
     const std::unordered_map<int64_t, str>& GetMapStr(const std::string& pname) const;
-    std::unordered_map<int64_t, str>& GetMapStr(const std::string& pname);
     bool ExistsMapStr(const std::string& pname, int64_t key) const;
     void SetMapStr(const std::string& pname, int64_t key, const str& value) const;
     // sub
     const std::unordered_set<int64_t>& GetSubObjectSet(const std::string& pname) const;
-    std::unordered_set<int64_t>& GetSubObjectSet(const std::string& pname);
     bool ExistsSubObjectSet(const std::string& pname, int64_t sub_id) const;
     void SetSubObjectSet(const std::string& pname, int64_t sub_id) const;
     const std::vector<int64_t>& GetSubObjectArr(const std::string& pname) const;
-    std::vector<int64_t>& GetSubObjectArr(const std::string& pname);
     bool ExistsSubObjectArr(const std::string& pname, int64_t sub_id) const;
     void AppendSubObjectArr(const std::string& pname, int64_t sub_id) const;
 };
